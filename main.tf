@@ -8,7 +8,7 @@ resource "helm_release" "drupal_dev" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  namespace       = "production-ns"
+  namespace = "production-ns"
   #atomic          = true
   #cleanup_on_fail = true
 
