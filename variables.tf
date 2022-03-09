@@ -15,7 +15,7 @@ variable "externaldbprod_user" {
 }
 
 variable "externaldbprod_password" {
-  description = "Passwordfor the user that has read write permissions to the production db"
+  description = "Password for the user that has read write permissions to the production db"
   type        = string
 }
 
