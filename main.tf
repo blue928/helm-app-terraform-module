@@ -41,7 +41,8 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "externalDatabase.database"
-    value = var.externaldbprod_database
+    value = "myknow1productiondb"
+    #value = var.externaldbprod_database
   }
 
   set {
