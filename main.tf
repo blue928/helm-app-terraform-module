@@ -8,9 +8,9 @@ resource "helm_release" "drupal_dev" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  namespace = "production-ns"
-  atomic = true 
-  cleanup_on_fail = true
+  namespace       = "production-ns"
+  #atomic          = true
+  #cleanup_on_fail = true
 
   # MUST be false to connect to external database
   set {
@@ -31,7 +31,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "externalDatabase.user"
-    value = var.externaldbprod_user 
+    value = var.externaldbprod_user
   }
 
   set {
@@ -45,17 +45,17 @@ resource "helm_release" "drupal_dev" {
   }
 
   set {
-    name = "global.storageClass"
+    name  = "global.storageClass"
     value = "aks-file-share-custom-sc-csi"
   }
 
   set {
-    name = "drupalUsername"
+    name  = "drupalUsername"
     value = "drupaltest"
   }
 
   set {
-    name = "drupalPassword"
+    name  = "drupalPassword"
     value = "testdrupal"
   }
 
