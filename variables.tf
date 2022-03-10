@@ -19,7 +19,7 @@ variable "externaldbprod_password" {
   type        = string
 }
 
-variable "externaldbprod_database" {
+variable "production_db_name" {
   description = "Name of the production database for this app."
   type        = string
 }

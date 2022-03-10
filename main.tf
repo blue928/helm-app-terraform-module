@@ -41,7 +41,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "externalDatabase.database"
-    value = "myknow1productiondb"
+    value = var.production_db_name
     #value = var.externaldbprod_database
   }
 
@@ -60,14 +60,14 @@ resource "helm_release" "drupal_dev" {
     value = "testdrupal"
   }
 
-  #set {
-  #  name = "persistence.accesModes"
-  #  value = "ReadWriteMany"
-  #}
+  set {
+    name  = "persistence.accesModes"
+    value = "ReadWriteMany"
+  }
 
-  #set {
-  #  name = "persistence.size"
-  #  value = "10Gi"
-  #}
+  set {
+    name  = "persistence.size"
+    value = "10Gi"
+  }
 
 }
