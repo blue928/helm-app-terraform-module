@@ -8,14 +8,17 @@ resource "helm_release" "drupal_dev" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  namespace = "production-ns"
-  #atomic          = true
+  #namespace = "production-ns"
+  namespace = var.cluster_namespace
+  create_namespace = var.create_namespace
+  atomic          = var.atomic
   #cleanup_on_fail = true
+  
 
   # MUST be false to connect to external database
   set {
     name  = "mariadb.enabled"
-    value = var.auto_deploy_database
+    value = var.mariadb_enabled
   }
 
   set {
@@ -25,23 +28,22 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "externalDatabase.host"
-    value = var.externaldb_fqdn
-    #value = "modulebaselift-fs-db-server.mysql.database.azure.com"
+    value = var.externalDatabase_host
   }
 
   set {
     name  = "externalDatabase.user"
-    value = var.externaldbprod_user
+    value = var.externalDatabase_user
   }
 
   set {
     name  = "externalDatabase.password"
-    value = var.externaldbprod_password
+    value = var.externalDatabase_password
   }
 
   set {
     name  = "externalDatabase.database"
-    value = var.production_db_name
+    value = var.externalDatabase_database
     #value = var.externaldbprod_database
   }
 

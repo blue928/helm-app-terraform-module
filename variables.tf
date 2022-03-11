@@ -1,25 +1,37 @@
-variable "auto_deploy_database" {
+variable "create_namespace" {
+  description = "True to allow Helm to create the name space. Otherwise, it should already exist (false)."
+  type = bool
+  default = false
+}
+variable "mariadb_enabled" {
   description = "False to use an existing external database. True to let Helm handle it."
   type        = string
   default     = "false"
 }
 
-variable "externaldb_fqdn" {
+variable "atomic" {
+  type        = bool
+  description = "If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used"
+  default     = true
+}
+
+
+variable "externalDatabase_host" {
   description = "FQDN of the external db server to connect to."
   type        = string
 }
 
-variable "externaldbprod_user" {
+variable "externalDatabase_user" {
   description = "Username of the user that has read write permissions to the production db"
   type        = string
 }
 
-variable "externaldbprod_password" {
+variable "externalDatabase_password" {
   description = "Password for the user that has read write permissions to the production db"
   type        = string
 }
 
-variable "production_db_name" {
+variable "externalDatabase_database" {
   description = "Name of the production database for this app."
   type        = string
 }
