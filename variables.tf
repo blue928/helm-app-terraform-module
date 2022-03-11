@@ -3,6 +3,11 @@ variable "create_namespace" {
   type = bool
   default = false
 }
+
+variable "cluster_namespace" {
+  description = "The cluster namespace into which this app will be deployed."
+  type = string
+}
 variable "mariadb_enabled" {
   description = "False to use an existing external database. True to let Helm handle it."
   type        = string
