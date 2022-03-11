@@ -4,7 +4,7 @@
 
 
 resource "helm_release" "drupal_dev" {
-  name       = "drupal-test-test"
+  name       = var.helm_app_name
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""

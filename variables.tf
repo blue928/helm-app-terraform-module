@@ -1,3 +1,8 @@
+variable "helm_app_name" {
+  description = "The name of this application"
+  type = string
+}
+
 variable "create_namespace" {
   description = "True to allow Helm to create the name space. Otherwise, it should already exist (false)."
   type = bool
