@@ -6,7 +6,7 @@ variable "helm_app_name" {
 variable "create_namespace" {
   description = "True to allow Helm to create the name space. Otherwise, it should already exist (false)."
   type = bool
-  default = false
+  default = true 
 }
 
 variable "cluster_namespace" {
