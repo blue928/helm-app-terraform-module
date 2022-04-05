@@ -1,6 +1,7 @@
 # Uses a production-grade, enterprise-ready chart from Bitnami
 # https://artifacthub.io/packages/helm/bitnami/drupal
 # https://docs.bitnami.com/kubernetes/apps/drupal/get-started/expose-service/
+# for ingress: https://docs.bitnami.com/kubernetes/apps/drupal/configuration/configure-ingress/
 
 
 resource "helm_release" "drupal_dev" {
