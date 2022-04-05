@@ -10,11 +10,11 @@ resource "helm_release" "drupal_dev" {
   chart      = "drupal"
   #version    = ""
   #namespace = "production-ns"
-  namespace = var.cluster_namespace
+  namespace        = var.cluster_namespace
   create_namespace = var.create_namespace
-  atomic          = var.atomic
+  atomic           = var.atomic
   #cleanup_on_fail = true
-  
+
 
   # MUST be false to connect to external database
   set {
@@ -78,8 +78,15 @@ resource "helm_release" "drupal_dev" {
   #  value = "clusterIP"
   #}
 
+  # Let's Encrypt or another certification method must already
+  # be configured on the cluster for this to work.
   set {
-    name = "ingress.enabled"
+    name  = "ingress.tls"
+    value = "true"
+  }
+
+  set {
+    name  = "ingress.enabled"
     value = "true"
   }
 

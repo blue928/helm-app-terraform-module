@@ -1,17 +1,17 @@
 variable "helm_app_name" {
   description = "The name of this application"
-  type = string
+  type        = string
 }
 
 variable "create_namespace" {
   description = "True to allow Helm to create the name space. Otherwise, it should already exist (false)."
-  type = bool
-  default = true 
+  type        = bool
+  default     = true
 }
 
 variable "cluster_namespace" {
   description = "The cluster namespace into which this app will be deployed."
-  type = string
+  type        = string
 }
 variable "mariadb_enabled" {
   description = "False to use an existing external database. True to let Helm handle it."
@@ -49,5 +49,5 @@ variable "externalDatabase_database" {
 variable "ingress_hostname" {
   description = "The hostname to use for the ingress"
   type        = string
-  default = "bluepresley.com"
+  default     = "bluepresley.com"
 }
