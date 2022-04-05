@@ -75,7 +75,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "persistence.size"
-    value = "10Gi"
+    value = "15Gi"
   }
 
   #set {
