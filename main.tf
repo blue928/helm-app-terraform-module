@@ -49,6 +49,11 @@ resource "helm_release" "drupal_dev" {
   }
 
   set {
+    name  = "replicaCount"
+    value = "2"
+  }
+
+  set {
     name  = "global.storageClass"
     value = "aks-file-share-custom-sc-csi"
   }
@@ -65,7 +70,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "persistence.accesModes"
-    value = "- ReadWriteMany"
+    value = "[\"ReadWriteMany\"]"
   }
 
   set {
