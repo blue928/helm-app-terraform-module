@@ -78,6 +78,11 @@ resource "helm_release" "drupal_dev" {
   #}
 
   set {
+    name = "ingress.enabled"
+    value = "true"
+  }
+
+  set {
     name  = "ingress.ingressClassName"
     value = "nginx"
   }
