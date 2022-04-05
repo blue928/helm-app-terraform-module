@@ -72,4 +72,14 @@ resource "helm_release" "drupal_dev" {
     value = "10Gi"
   }
 
+  #set {
+  #  name  = "service.type"
+  #  value = "clusterIP"
+  #}
+
+  set {
+    name  = "ingress.ingressClassName"
+    value = "nginx"
+  }
+
 }
