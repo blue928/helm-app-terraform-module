@@ -88,4 +88,9 @@ resource "helm_release" "drupal_dev" {
     value = "nginx"
   }
 
+  set {
+    name  = "ingress.hostname"
+    value = var.ingress_hostname
+  }
+
 }

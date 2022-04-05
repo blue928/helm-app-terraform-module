@@ -45,3 +45,9 @@ variable "externalDatabase_database" {
   description = "Name of the production database for this app."
   type        = string
 }
+
+variable "ingress_hostname" {
+  description = "The hostname to use for the ingress"
+  type        = string
+  default = "bluepresley.com"
+}
