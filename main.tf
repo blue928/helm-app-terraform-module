@@ -65,7 +65,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "persistence.accesModes"
-    value = "ReadWriteMany"
+    value = "- ReadWriteMany"
   }
 
   set {
