@@ -3,7 +3,7 @@
 # https://docs.bitnami.com/kubernetes/apps/drupal/get-started/expose-service/
 # for ingress: https://docs.bitnami.com/kubernetes/apps/drupal/configuration/configure-ingress/
 
-
+/*
 resource "helm_release" "drupal_dev" {
   name       = var.helm_app_name
   repository = "https://charts.bitnami.com/bitnami"
@@ -105,4 +105,4 @@ resource "helm_release" "drupal_dev" {
     value = var.ingress_hostname
   }
 
-}
+}*/
