@@ -24,7 +24,7 @@ resource "helm_release" "drupal_dev" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  namespace        = kubernetes_namespace_v1.app_namespace.name 
+  namespace        = kubernetes_namespace_v1.app_namespace.metadata.name 
   atomic           = var.atomic
   #cleanup_on_fail = true
 
