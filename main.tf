@@ -3,15 +3,28 @@
 # https://docs.bitnami.com/kubernetes/apps/drupal/get-started/expose-service/
 # for ingress: https://docs.bitnami.com/kubernetes/apps/drupal/configuration/configure-ingress/
 
-/*
+
+# Note: helm_release follows all install conventions of helm, noteably, the
+# --create-namespace flag does not delete the namespace it creates after uninstall. 
+# For this to also be managed, it needs to be created with the kubernetes_namespace
+# resource instead of the helm_release resource.
+# See: https://github.com/hashicorp/terraform-provider-helm/issues/785
+
+resource "kubernetes_namespace_v1" "app_namespace" {
+  metadata {
+    annotations = {}
+    labels      = {}
+    name        = "${var.helm_app_name}-ns"
+  }
+}
+
+
 resource "helm_release" "drupal_dev" {
   name       = var.helm_app_name
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  #namespace = "production-ns"
-  namespace        = var.cluster_namespace
-  create_namespace = var.create_namespace
+  namespace        = kubernetes_namespace_v1.app_namespace.name 
   atomic           = var.atomic
   #cleanup_on_fail = true
 
@@ -75,13 +88,13 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name  = "persistence.size"
-    value = "15Gi"
+    value = "10Gi"
   }
 
-  #set {
-  #  name  = "service.type"
-  #  value = "clusterIP"
-  #}
+  set {
+    name  = "service.type"
+    value = "ClusterIP"
+  }
 
   # Let's Encrypt or another certification method must already
   # be configured on the cluster for this to work.
@@ -105,4 +118,4 @@ resource "helm_release" "drupal_dev" {
     value = var.ingress_hostname
   }
 
-}*/
+}

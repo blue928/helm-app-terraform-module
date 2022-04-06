@@ -3,12 +3,6 @@ variable "helm_app_name" {
   type        = string
 }
 
-variable "create_namespace" {
-  description = "True to allow Helm to create the name space. Otherwise, it should already exist (false)."
-  type        = bool
-  default     = true
-}
-
 variable "cluster_namespace" {
   description = "The cluster namespace into which this app will be deployed."
   type        = string
