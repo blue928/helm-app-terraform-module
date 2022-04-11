@@ -91,10 +91,10 @@ resource "helm_release" "drupal_dev" {
     value = "10Gi"
   }
 
-  set {
-    name  = "service.type"
-    value = "ClusterIP"
-  }
+  #set {
+  #  name  = "service.type"
+  #  value = "ClusterIP"
+  #}
 
   # Let's Encrypt or another certification method must already
   # be configured on the cluster for this to work.
