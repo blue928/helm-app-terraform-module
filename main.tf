@@ -116,6 +116,7 @@ resource "helm_release" "drupal_dev" {
   set {
     name = "ingress.annotations[0]"
     value = "cert-manager.io/cluster-issuer: letsencrypt-prod"
+    type = string
   }
 
   set {
