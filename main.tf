@@ -25,7 +25,7 @@ resource "helm_release" "drupal_dev" {
   chart      = "drupal"
   #version    = ""
   namespace        = kubernetes_namespace_v1.app_namespace.metadata[0].name 
-  atomic           = var.atomic
+  #atomic           = var.atomic
   #cleanup_on_fail = true
 
 
