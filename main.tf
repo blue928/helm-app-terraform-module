@@ -115,7 +115,7 @@ resource "helm_release" "drupal_dev" {
 
   set {
     name = "ingress.annotations"
-    value = "cert-manager.io"
+    value = "{}"
   }
 
   set {
