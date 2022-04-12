@@ -759,7 +759,7 @@ networkPolicy:
   ## @param networkPolicy.ingress.podSelector [object] Ingress Proxy pods selector labels. These labels will be used to identify the Ingress Proxy pods.
   ##
   ingress:
-    enabled: false
+    enabled: true
     ## e.g:
     ## podSelector:
     ##   label: ingress
