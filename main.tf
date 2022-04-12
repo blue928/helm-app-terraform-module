@@ -119,7 +119,7 @@ resource "helm_release" "drupal_dev" {
   }
 
   set {
-    name = "ingress.annotations"
+    name = "ingress.annotations.cert-manager\\.io/cluster-issuer"
     value = "{}"
   }
 
