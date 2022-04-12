@@ -29,7 +29,8 @@ resource "helm_release" "drupal_dev" {
   #cleanup_on_fail = true
 
   values = [
-    "${file("values.yaml")}"
+    #"${file("values.yaml")}"
+    "${path.module}/values.yaml"
   ]
 
 
