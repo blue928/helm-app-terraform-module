@@ -28,10 +28,10 @@ resource "helm_release" "drupal_dev" {
   #atomic           = var.atomic
   #cleanup_on_fail = true
 
-  values = [
-    #"${file("values.yaml")}"
-    "${path.module}/values.yaml"
-  ]
+ # values = [
+ #   #"${file("values.yaml")}"
+ #   "${path.module}/values.yaml"
+ # ]
 
 
   # MUST be false to connect to external database
@@ -118,10 +118,10 @@ resource "helm_release" "drupal_dev" {
     value = "nginx"
   }
 
-  #set {
-  #  name = "ingress.annotations"
-  #  value = "{}"
-  #}
+  set {
+    name = "ingress.annotations"
+    value = "{}"
+  }
 
   set {
     name  = "ingress.hostname"
