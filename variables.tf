@@ -20,7 +20,6 @@ variable "atomic" {
 }
 
 variable "timeout" {
-  type        = int
   description = "The timeout in seconds for the helm install process to complete successfully."
   default     = 700
 }
