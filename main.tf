@@ -25,16 +25,8 @@ resource "helm_release" "drupal_dev" {
   chart      = "drupal"
   #version    = ""
   namespace        = kubernetes_namespace_v1.app_namespace.metadata[0].name 
-  #atomic           = var.atomic
-  #cleanup_on_fail = true
-  wait = true
-  timeout = 600
-
- # values = [
- #   #"${file("values.yaml")}"
- #   "${path.module}/values.yaml"
- # ]
-
+  atomic           = var.atomic
+  timeout = var.timeout
 
   # MUST be false to connect to external database
   set {

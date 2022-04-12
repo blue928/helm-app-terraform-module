@@ -16,9 +16,14 @@ variable "mariadb_enabled" {
 variable "atomic" {
   type        = bool
   description = "If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used"
-  default     = true
+  default     = false
 }
 
+variable "timeout" {
+  type        = int
+  description = "The timeout in seconds for the helm install process to complete successfully."
+  default     = 700
+}
 
 variable "externalDatabase_host" {
   description = "FQDN of the external db server to connect to."
