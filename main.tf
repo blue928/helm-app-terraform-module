@@ -32,7 +32,7 @@ resource "helm_release" "drupal_dev" {
     "${file("values.yaml")}"
   ]
 
-/*
+
   # MUST be false to connect to external database
   set {
     name  = "mariadb.enabled"
@@ -125,6 +125,6 @@ resource "helm_release" "drupal_dev" {
   set {
     name  = "ingress.hostname"
     value = var.ingress_hostname
-  }*/
+  }
 
 }

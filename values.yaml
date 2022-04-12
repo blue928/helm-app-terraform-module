@@ -437,7 +437,7 @@ service:
 ingress:
   ## @param ingress.enabled Enable ingress controller resource
   ##
-  enabled: false
+  enabled: true
   ## DEPRECATED: Use ingress.annotations instead of ingress.certManager
   ## certManager: false
   ##
@@ -452,10 +452,10 @@ ingress:
   ## This is supported in Kubernetes 1.18+ and required if you have more than one IngressClass marked as the default for your cluster .
   ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
   ##
-  ingressClassName: ""
+  ingressClassName: "nginx"
   ## @param ingress.hostname Default host for the ingress resource
   ##
-  hostname: drupal.local
+  hostname: bluepresley.com
   ## @param ingress.path The Path to Drupal. You may need to set this to '/*' in order to use this
   ## with ALB ingress controllers.
   ##
@@ -471,12 +471,13 @@ ingress:
   ##   kubernetes.io/ingress.class: nginx
   ##   cert-manager.io/cluster-issuer: cluster-issuer-name
   ##
-  annotations: {}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   ## @param ingress.tls Enable TLS configuration for the hostname defined at ingress.hostname parameter
   ## TLS certificates will be retrieved from a TLS secret with name: {{- printf "%s-tls" .Values.ingress.hostname }}
   ## You can use the ingress.secrets parameter to create this TLS secret or relay on cert-manager to create it
   ##
-  tls: false
+  tls: true
   ## @param ingress.extraHosts The list of additional hostnames to be covered with this ingress record.
   ## Most likely the hostname above will be enough, but in the event more hosts are needed, this is an array
   ## extraHosts:
@@ -523,7 +524,7 @@ mariadb:
   ## @param mariadb.enabled Whether to deploy a mariadb server to satisfy the applications database requirements
   ## To use an external database set this to false and configure the externalDatabase parameters
   ##
-  enabled: true
+  enabled: false
   ## @param mariadb.architecture MariaDB architecture (`standalone` or `replication`)
   ##
   architecture: standalone
@@ -759,7 +760,7 @@ networkPolicy:
   ## @param networkPolicy.ingress.podSelector [object] Ingress Proxy pods selector labels. These labels will be used to identify the Ingress Proxy pods.
   ##
   ingress:
-    enabled: true
+    enabled: false
     ## e.g:
     ## podSelector:
     ##   label: ingress
