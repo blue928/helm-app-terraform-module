@@ -28,7 +28,11 @@ resource "helm_release" "drupal_dev" {
   #atomic           = var.atomic
   #cleanup_on_fail = true
 
+  values = [
+    "${file("values.yaml")}"
+  ]
 
+/*
   # MUST be false to connect to external database
   set {
     name  = "mariadb.enabled"
@@ -121,6 +125,6 @@ resource "helm_release" "drupal_dev" {
   set {
     name  = "ingress.hostname"
     value = var.ingress_hostname
-  }
+  }*/
 
 }
