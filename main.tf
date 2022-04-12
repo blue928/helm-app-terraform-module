@@ -118,10 +118,10 @@ resource "helm_release" "drupal_dev" {
     value = "nginx"
   }
 
-  set {
-    name = "ingress.annotations"
-    value = "{}"
-  }
+  #set {
+  #  name = "ingress.annotations"
+  #  value = "{}"
+  #}
 
   set {
     name  = "ingress.hostname"
