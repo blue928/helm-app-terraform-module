@@ -28,6 +28,7 @@ resource "helm_release" "drupal_dev" {
   #atomic           = var.atomic
   #cleanup_on_fail = true
   wait = true
+  timeout = 600
 
  # values = [
  #   #"${file("values.yaml")}"
