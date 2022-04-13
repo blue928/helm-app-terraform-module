@@ -21,7 +21,7 @@ variable "atomic" {
 
 variable "timeout" {
   description = "The timeout in seconds for the helm install process to complete successfully."
-  default     = 700
+  default     = 1400
 }
 
 variable "externalDatabase_host" {
