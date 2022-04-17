@@ -49,3 +49,22 @@ variable "ingress_hostname" {
   type        = string
   default     = "bluepresley.com"
 }
+
+# Custom image registry config
+variable "image_registry" {
+  description = "The url of the image registry to use for the helm chart"
+  type        = string
+  default     = "testwithexternaldnsacr.azurecr.io/bluekeyvatechterraform:233"
+}
+
+variable "image_repository" {
+  description = "The repository to use for the helm chart"
+  type        = string
+  default     = "bluekeyvatechterraform"
+}
+
+variable "image_tag" {
+  description = "The tag to use for the helm chart"
+  type        = string
+  default     = "233"
+}

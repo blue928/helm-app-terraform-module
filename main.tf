@@ -24,9 +24,9 @@ resource "helm_release" "drupal_dev" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
   #version    = ""
-  namespace        = kubernetes_namespace_v1.app_namespace.metadata[0].name 
-  atomic           = var.atomic
-  timeout = var.timeout
+  namespace = kubernetes_namespace_v1.app_namespace.metadata[0].name
+  atomic    = var.atomic
+  timeout   = var.timeout
 
   # MUST be false to connect to external database
   set {
@@ -113,13 +113,33 @@ resource "helm_release" "drupal_dev" {
   }
 
   set {
-    name = "ingress.annotations.cert-manager\\.io/cluster-issuer"
+    name  = "ingress.annotations.cert-manager\\.io/cluster-issuer"
     value = "letsencrypt-prod"
   }
 
   set {
     name  = "ingress.hostname"
     value = var.ingress_hostname
+  }
+
+  set {
+    name = "image.registry"
+    value = var.image_registry
+  }
+  
+  set {
+    name = "image.repository"
+    value = var.image_repository
+  }
+
+  set {
+    name = "image.tag"
+    value = var.image_tag
+  }
+
+  set {
+    name = "image.debug"
+    value = "true"
   }
 
 }
