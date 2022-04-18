@@ -20,6 +20,9 @@ resource "kubernetes_namespace_v1" "app_namespace" {
 
 
 resource "helm_release" "drupal_dev" {
+  depends_on = [
+    kubernetes_namespace_v1.app_namespace,
+  ]
   name       = var.helm_app_name
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "drupal"
