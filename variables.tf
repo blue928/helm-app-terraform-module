@@ -47,7 +47,6 @@ variable "externalDatabase_database" {
 variable "ingress_hostname" {
   description = "The hostname to use for the ingress"
   type        = string
-  default     = "bluepresley.com"
 }
 
 # Custom image registry config

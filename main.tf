@@ -10,16 +10,16 @@
 # resource instead of the helm_release resource.
 # See: https://github.com/hashicorp/terraform-provider-helm/issues/785
 
-/*resource "kubernetes_namespace_v1" "app_namespace" {
+resource "kubernetes_namespace_v1" "app_namespace" {
   metadata {
     annotations = {}
     labels      = {}
     name        = "${var.helm_app_name}-ns"
   }
-}*/
+}
 
 
-/*resource "helm_release" "drupal_dev" {
+resource "helm_release" "drupal_dev" {
   depends_on = [
     kubernetes_namespace_v1.app_namespace,
   ]
@@ -145,4 +145,4 @@
     value = "true"
   }
 
-}*/
+}
