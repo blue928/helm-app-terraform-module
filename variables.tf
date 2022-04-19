@@ -53,17 +53,20 @@ variable "ingress_hostname" {
 variable "image_registry" {
   description = "The url of the image registry to use for the helm chart"
   type        = string
-  default     = "testwithexternaldnsacr.azurecr.io/bluekeyvatechterraform:233"
+  #default     = "testwithexternaldnsacr.azurecr.io/bluekeyvatechterraform:233"
+  default = null
 }
 
 variable "image_repository" {
   description = "The repository to use for the helm chart"
   type        = string
-  default     = "bluekeyvatechterraform"
+  #default     = "bluekeyvatechterraform"
+  default = null
 }
 
 variable "image_tag" {
   description = "The tag to use for the helm chart"
   type        = string
-  default     = "233"
+  #default     = "233"
+  value = null
 }
